@@ -25,4 +25,4 @@ go.work.sum
 .env
 
 # Mac BS
-.DS_Store
+**/.DS_Store
