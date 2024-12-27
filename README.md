@@ -4,8 +4,7 @@
 
 <h1 align="center">GoTiGen</h1>
 
-A Go tool for generating type safe definitions of
-ThingsDB types, procedures, and enums
+A tool for generating Golang code based on Types, Procedures and Enums defined in ThingsDB.
 
 > [!WARNING]
 > This project is very much WIP
