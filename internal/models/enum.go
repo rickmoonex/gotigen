@@ -22,6 +22,7 @@ type ParsedEnum struct {
 	Name         string
 	DefaultValue int
 	Methods      []ParsedMethod
+	Members      []ParsedEnumMember
 }
 
 // ParsedEnumMember represents a ThingsDBEnumMember that has been parsed and sanitized

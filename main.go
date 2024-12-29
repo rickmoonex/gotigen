@@ -1,12 +1,12 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 
 	"github.com/rickmoonex/gotigen/internal/client"
+	"github.com/rickmoonex/gotigen/internal/gen"
 	"github.com/rickmoonex/gotigen/internal/parser"
 )
 
@@ -18,14 +18,16 @@ func main() {
 		log.Fatal(err)
 	}
 
-	types, err := client.GetTypes(collectionName)
+	enums, err := client.GetEnums(collectionName)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	parsedTypes := parser.ParseThingsDBTypes(*types)
+	parsedEnums, err := parser.ParseThingsDBEnums(*enums)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	data, _ := json.Marshal(parsedTypes)
-
-	fmt.Println(string(data))
+	ems := *parsedEnums
+	fmt.Println(string(gen.GenerateParsedEnums(ems[0])))
 }
